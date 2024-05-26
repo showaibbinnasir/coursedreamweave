@@ -3,9 +3,10 @@ import two from "../../../assets/stuOne.png"
 import three from "../../../assets/stuThree.png"
 import { Carousel } from 'keep-react'
 import { useState } from 'react'
-import { CloudArrowUp } from 'phosphor-react'
+import star from "../../../assets/star.gif"
+import { Rating } from 'keep-react'
 import { Button, Modal } from 'keep-react'
-import { plugin } from "postcss"
+
 const Review = () => {
     const [isOpen, setIsOpen] = useState(false)
     const openModal = () => {
@@ -56,9 +57,9 @@ const Review = () => {
                                 <div className="flex items-center justify-center rounded-xl shadow-2xl bg-gradient-to-r from-[#0D042A] to-[#37084D] p-20">
                                     <div>
                                         <div className="flex justify-center">
-                                            <img src={item.image} className="w-[80px] rounded-full" alt="" />
+                                            <img data-aos="flip-right" src={item.image} className="w-[80px] rounded-full" alt="" />
                                         </div>
-                                        <h1 className="text-[#8758FA] text-2xl text-center">{item.name}</h1>
+                                        <h1 data-aos="fade-right" className="text-[#8758FA] text-2xl text-center">{item.name}</h1>
                                         {
                                             item.text.length > 100 ?
                                                 <div>
@@ -68,7 +69,7 @@ const Review = () => {
                                                     <h1 onClick={openModal} className="text-[#8758FA] cursor-pointer">Read Full</h1>
                                                     <Modal isOpen={isOpen} onClose={closeModal}>
                                                         <Modal.Body className="space-y-3 bg-gradient-to-r from-[#0D042A] to-[#37084D]">
-                                                            
+
                                                             <Modal.Content>
                                                                 <h1 className="text-white">{item.text}</h1>
                                                             </Modal.Content>
@@ -76,7 +77,7 @@ const Review = () => {
                                                                 <Button onClick={closeModal} size="sm" variant="outline" color="secondary">
                                                                     Close
                                                                 </Button>
-                                                                
+
                                                             </Modal.Footer>
                                                         </Modal.Body>
                                                     </Modal>
@@ -85,6 +86,17 @@ const Review = () => {
                                                     {item.text}
                                                 </h1>
                                         }
+                                        <div className="flex justify-center">
+                                            <Rating>
+                                                
+                                                    {[...Array(parseInt(item.rating))].map((x, i) =>
+                                                        <Rating.Star key={i} value={x}>
+                                                        <img src={star} className="w-[20px]" alt="" />
+                                                      </Rating.Star>
+                                                      )}
+                                                
+                                            </Rating>
+                                        </div>
                                     </div>
                                 </div>
                             </Carousel.Item>

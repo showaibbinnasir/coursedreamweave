@@ -1,3 +1,4 @@
+import CourseFee from "./CourseFee/CourseFee";
 import Description from "./Description/Description";
 import Intro from "./Intro/Intro";
 import Instructor from "./Intructor/Instructor";
@@ -13,6 +14,7 @@ const HomePage = () => {
             <Description></Description>
             <Outline></Outline>
             <Review></Review>
+            <CourseFee></CourseFee>
         </div>
     );
 };
