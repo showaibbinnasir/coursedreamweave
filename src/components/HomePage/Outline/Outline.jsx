@@ -1,6 +1,6 @@
 import { Timeline } from 'keep-react'
 import { Tree } from "keep-react";
-import { FolderNotchOpen, File } from "phosphor-react";
+import {  File } from "phosphor-react";
 import folder from "../../../assets/folder.png"
 const Outline = () => {
     const courseOutline = [
@@ -195,7 +195,7 @@ const Outline = () => {
     ]
     return (
         <div className=' mx-5 lg:mx-28'>
-            <div className="flex justify-center mb-15">
+            <div className="flex justify-center">
                 <div className='bg-[#8758FA] rounded-lg p-2 flex items-center'>
                     <h1 className="text-white text-[32px]">Course Outline</h1>
                 </div>
@@ -218,7 +218,7 @@ const Outline = () => {
                             }
                         </Timeline>
                     </div>
-                    <div>
+                    <div className=' p-12 lg:p-24 rounded-lg '>
                         <Tree
                             showBorder={true}
                             showItemsNumber={true}
